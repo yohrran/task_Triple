@@ -1,11 +1,21 @@
-const { extends: extendConfigs, overrides } = createConfig({ type: 'node' });
+const createConfig = require('@titicaca/eslint-config-triple/create-config')
+
+const { extends: extendConfigs, overrides } = createConfig({
+  type: 'frontend',
+})
 
 module.exports = {
-  extends: [...extendConfigs],
-  overrides: [...overrides],
+  extends: [
+    ...extendConfigs,
+    'react-app',
+    'plugin:jsx-a11y/recommended',
+    'prettier',
+    'plugin:import/recommended',
+  ],
   plugins: ['jsx-a11y', 'prettier'],
+  overrides: [...overrides],
   rules: {
-    semi: 2,
+    semi: true,
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     'jsx-a11y/label-has-associated-control': [2, { assert: 'htmlFor' }],
     'no-promise-executor-return': 0,
@@ -22,4 +32,4 @@ module.exports = {
     'import/prefer-default-export': 'off',
     caseSensitive: 0,
   },
-};
+}
