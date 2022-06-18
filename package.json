@@ -11,6 +11,7 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "standardx": "^3.0.0",
+    "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -39,7 +40,9 @@
   },
   "devDependencies": {
     "@titicaca/eslint-config-triple": "^3.1.0",
-    "eslint-plugin-promise": "^6.0.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "prettier": "2.7.1"
   },
   "lint:es": "eslint '**/*.{js,ts,tsx}'",
   "lint:es:fix": "npm run lint:es -- --fix",
