@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 
@@ -17,10 +16,10 @@ function CountUp({ start = 0, end, text, value }) {
   isStartRef.current = true;
 
   const makeCountUp = useCallback(() => {
-    const sumValur = countRef.current + increment;
-    if (sumValur > end) return setNowNumber(end);
-    countRef.current = sumValur;
-    setNowNumber(sumValur.toFixed(0));
+    const sumValue = countRef.current + increment;
+    if (sumValue > end) return setNowNumber(end);
+    countRef.current = sumValue;
+    setNowNumber(sumValue.toFixed(0));
   }, [end, increment]);
 
   const updateCounterState = useCallback(() => {
@@ -45,8 +44,6 @@ function CountUp({ start = 0, end, text, value }) {
     if (isOn) {
       updateCounterState();
     }
-
-    return () => setIsOn(false);
   }, [start, end, updateCounterState, isOn]);
 
   return (
