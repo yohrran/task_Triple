@@ -41,7 +41,7 @@ $npm run start 로 실행시켜주세요.
 
 # 🔗 설명
 
-<img width="1536" src="https://user-images.githubusercontent.com/80472881/174757651-ffb6d0c1-52bc-4cc9-af8d-9f8d1da0e9c1.gif" ></img>
+<img width="1536" src="https://user-images.githubusercontent.com/80472881/174821993-2740243c-2577-4a28-9a7e-fc05999f0e45.gif" />
 
 - 100ms마다 좌측이미지, 지표 문구, 수상 내역 순으로 나옵니다.
 - 등장 애니메이션은 700ms 입니다.
