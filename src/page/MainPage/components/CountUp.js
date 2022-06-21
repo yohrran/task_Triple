@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
 import CountingUnit from '../../../components/CountingUnit';
@@ -8,43 +8,41 @@ function CountUp({ start = 0, end, text, value }) {
   const [nowNumber, setNowNumber] = useState(0);
   const [isOn, setIsOn] = useState(true);
   const countRef = useRef(start);
-  const isStartRef = useRef(null);
 
   const time = end / 200;
   const increment = end / 200;
-
-  isStartRef.current = true;
-
-  const makeCountUp = useCallback(() => {
-    const sumValue = countRef.current + increment;
-    if (sumValue > end) return setNowNumber(end);
-    countRef.current = sumValue;
-    setNowNumber(sumValue.toFixed(0));
-  }, [end, increment]);
-
-  const updateCounterState = useCallback(() => {
-    if (countRef.current < end - 40) {
-      makeCountUp();
-    } else if (countRef.current < end) {
-      isStartRef.current = false;
-      makeCountUp();
-    } else {
-      setIsOn(false);
-      return;
-    }
-
-    if (isStartRef.current) {
-      setTimeout(updateCounterState, time);
-    } else {
-      setTimeout(updateCounterState, (end / 200) * 25);
-    }
-  }, [end, makeCountUp, time]);
+  let timer = useRef(null);
 
   useEffect(() => {
+    const makeCountUp = () => {
+      const sumValue = countRef.current + increment;
+      countRef.current = sumValue;
+      setNowNumber(sumValue.toFixed(0));
+    };
+
+    const updateCounterState = () => {
+      if (countRef.current < end) {
+        makeCountUp();
+      } else {
+        setIsOn(false);
+        return;
+      }
+
+      if (countRef.current < end - 40) {
+        timer.current = setTimeout(updateCounterState, time);
+      } else {
+        timer.current = setTimeout(updateCounterState, (end / 200) * 25);
+      }
+    };
+
     if (isOn) {
       updateCounterState();
     }
-  }, [start, end, updateCounterState, isOn]);
+
+    return () => {
+      clearTimeout(timer.current);
+    };
+  }, []);
 
   return (
     <Container>
