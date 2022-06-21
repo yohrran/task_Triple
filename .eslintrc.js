@@ -14,5 +14,6 @@ module.exports = {
   rules: {
     'prettier/prettier': ['error', { singleQuote: true, parser: 'flow' }],
     'no-console': 'error',
+    'no-unused-expressions': 'off',
   },
 };
