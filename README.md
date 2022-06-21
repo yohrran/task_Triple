@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# 트리플 과제
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 목차
 
-## Available Scripts
+🧑🏻‍💻 필수 요구사항
+<br />
+📁 실행 방법
+<br />
+🔗 설명
+<br />
+🔖 사용기술
+<br />
+🛠️ 구현하면서..
+<br />
+<br />
 
-In the project directory, you can run:
+# 🧑🏻‍💻 필수 요구사항
 
-### `npm start`
+- [⭕️] 문구, 이미지의 레이아웃과 스타일은 트리플 홈페이지와 동일해야 합니다. 단,
+  반응형 레이아웃은 고려하지 않습니다. 최소 화면 폭을 1200px로 고정합니다.
+- [⭕️] React를 이용하여 개발합니다. 그 외의 개발 스택은 자유롭게 구성합니다.
+- [⭕️] Google Chrome 최신 버전에서 동작해야 합니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [⭕️] README.md를 작성합니다. 아래 내용을 반드시 포함하되, 이외 내용은 자유롭게
+  추가할 수 있습니다.
+  - 프로젝트 실행 방법
+  - 사용한 기술과 선택한 이유
+  - 린팅/포매팅 셋업 시 titicacadev/eslint-config-triple을 적용해주세요.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br />
 
-### `npm test`
+# 📁 실행 방법
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+git clone 후, $npm install 명령어를 입력해주세요.
 
-### `npm run build`
+$npm run start 로 실행시켜주세요.
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+</br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 🔗 설명
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<img width="1536" src="https://user-images.githubusercontent.com/80472881/174757651-ffb6d0c1-52bc-4cc9-af8d-9f8d1da0e9c1.gif" ></img>
 
-### `npm run eject`
+- 100ms마다 좌측이미지, 지표 문구, 수상 내역 순으로 나옵니다.
+- 등장 애니메이션은 700ms 입니다.
+- 숫자는 0부터 시작해서 2초 동안 증가 후, 동시에 끝이납니다.
+- 숫자가 일정 이상 커진다면 느려지는 효과를 구현 했습니다.
+- React와 DOM API만을 이용해 구현했습니다.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  </br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# 🔖 사용기술
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### FrontEnd
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- React
+- styled-Component
+- React Testing Library
 
-## Learn More
+</br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# 🛠️ 구현하면서..
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Count-up.js 발견했지만, DOM API만을 이용해 어떻게 구현할 수 있을까?
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+과제를 진행하면서 Css에 좀 더 초점이 가있는 프로젝트라 생각됐다. 과제를 진행하면서 저를 가장 사로잡았던 부분은 숫자가 올라가는 애니메이션이였다.
+구현을 생각했었을 때, 만약 100을 넣는다면, 1초에 50씩 오르면 되고, 0.1 초마다 5가 오르는 형식으로 진행하면 괜찮지 않을까란 생각을 했다. 그런데 구현사항중에는 시간이 2초에 가까워질수록 느려지게 만드는 부분도 있어서 그 부분에 대해서 어떻게 접근을 해야하나라는 생각을 했다. 이론적인 접근은 0초부터 빠르게 올라가고 점점 2초에 가까워질수록 느려지도록 하는 부분으로 접근했지만 쉽게 접근할 수 없었다.
+그래서 정보를 찾던 중에 Count-up.js라는 라이브러리를 찾았다. 제가 구현하고 싶었던 그대로 동작하는 부분과 일치하는 부분들이 있었다. 그래서 해당 라이브러리를 뜯어보기도하고, 다른 파일에서 구동시키면서 숫자를 입력했을 때, 화면에 어떻게 그려지는지를 중점적으로 보면서 문제를 해결하려 했다. 그래서 생각해낸 것은, 일정 값을 일정한 시간동안 값을 더해주고, 동일한 시간 전에, 시간을 느리게 해서 더 해준다면 만들 수 있는 방식으로 현재는 되어있다.
+실질적으로 하고 싶었던 방향성은 분기처리하지 않아도 값이 더해지는 시간이 느려지는것을 구현하고 싶었으나, 그 부분의 로직을 구현하지 못한 부분이 아쉬움으로 남는다.
